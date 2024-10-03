@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodyeat the City Cat</title>
+    <style>
+        /* Reset margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(45, 54, 66); /* Example background color */
+        }
+
+        html, body {
+            height: 100%;
+            background-color: rgb(45, 54, 66); /* Example background color */
+        }
+
+        #full-screen-div {
+            height: 100vh; /* Full height of the viewport */
+            width: 100vw;  /* Full width of the viewport */
+            background-color: rgb(75, 70, 69);
+            background-image: url("./images/IMG_7309.jpg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="full-screen-div"></div>
+</body>
+<script>
+    const IMG_URLS = [
+        "./images/IMG_7309.jpg",
+        "./images/IMG_7318.jpg",
+        "./images/IMG_7319.jpg",
+        "./images/IMG_7320.jpg",
+        "./images/IMG_7321.jpg",
+        "./images/IMG_7324.jpg",
+        "./images/IMG_7325.jpg",
+        "./images/IMG_7326.jpg",
+        "./images/IMG_7327.jpg",
+        "./images/IMG_7328.jpg",
+        "./images/IMG_7329.jpg",
+        "./images/IMG_7330.jpg",
+        "./images/IMG_7331.jpg",
+        "./images/IMG_7332.jpg",
+        "./images/IMG_7333.jpg",
+        "./images/IMG_7334.jpg",
+    ]
+
+    let currPageIdx = 0;
+
+    const primaryDiv = document.querySelector("#full-screen-div");
+
+    primaryDiv.addEventListener('click', () => {
+        // currPageIdx = (currPageIdx + 1) % IMG_URLS.length;
+        currPageIdx = currPageIdx + 1;
+        const newUrl = IMG_URLS[currPageIdx];
+        primaryDiv.style.backgroundImage = `url("${IMG_URLS[currPageIdx]}")`;
+        if (currPageIdx >= IMG_URLS.length) {
+            window.location.replace("./index.html")
+        }
+    })
+</script>
+</html>
